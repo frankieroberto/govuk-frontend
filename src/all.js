@@ -2,6 +2,7 @@ import { nodeListForEach } from './common'
 import Accordion from './components/accordion/accordion'
 import Button from './components/button/button'
 import Details from './components/details/details'
+import CharacterCount from './components/character-count/character-count'
 import Checkboxes from './components/checkboxes/checkboxes'
 import ErrorSummary from './components/error-summary/error-summary'
 import Header from './components/header/header'
@@ -22,6 +23,11 @@ function initAll () {
   var $details = document.querySelectorAll('details')
   nodeListForEach($details, function ($detail) {
     new Details($detail).init()
+  })
+
+  var $characterCount = document.querySelectorAll('[data-module="character-count"]')
+  nodeListForEach($characterCount, function ($characterCount) {
+    new CharacterCount($characterCount).init()
   })
 
   var $checkboxes = document.querySelectorAll('[data-module="checkboxes"]')
@@ -52,6 +58,7 @@ export {
   initAll,
   Button,
   Details,
+  CharacterCount,
   Checkboxes,
   ErrorSummary,
   Header,

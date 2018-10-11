@@ -143,11 +143,20 @@
         clear: none;
       }
     }
+
+    // Prevent inline modifier being used with conditional reveals
+    &.govuk-radios--conditional {
+      .govuk-radios__item {
+        margin-right: 0;
+        float: none;
+      }
+    }
   }
 
   .govuk-radios__divider {
     $govuk-divider-size: $govuk-radios-size !default;
     @include govuk-font($size: 19);
+    @include govuk-text-colour;
     width: $govuk-divider-size;
     margin-bottom: govuk-spacing(2);
     text-align: center;

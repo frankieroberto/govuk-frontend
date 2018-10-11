@@ -14,6 +14,72 @@
 
 🆕 New features:
 
+- Pull Request Title goes here
+
+  Description goes here (optional)
+
+  ([PR #N](https://github.com/alphagov/govuk-frontend/pull/N))
+
+🔧 Fixes:
+
+- Pull Request Title goes here
+
+  Description goes here (optional)
+
+  ([PR #N](https://github.com/alphagov/govuk-frontend/pull/N))
+
+## 2.2.0 (Feature release)
+
+🆕 New features:
+
+- Allow classes on table header and row cells
+
+  Optional classes attribute can now be used on table header and row cell item
+  in the Nunjucks macro
+
+  ([PR #1015](https://github.com/alphagov/govuk-frontend/pull/1015))
+
+- Add character count component
+
+  ([PR #959](https://github.com/alphagov/govuk-frontend/pull/959))
+
+
+🔧 Fixes:
+
+- Apply max-width to the `<select>` element
+
+  The `<select>` element's width is governed by the widths of its `<option>`'s.
+
+  When the text in the options grows large, the element can grow to > 100% of the width of its container and break the layout.
+
+  ([PR #1013](https://github.com/alphagov/govuk-frontend/pull/1013))
+
+- Prevent product name in header from wrapping
+
+  Currently the product name in the header wraps when the space shrinks which doesn't look great.
+
+  Adding `display: inline-table` prevents that so that the product name as a whole drops to a new line when space is shrunk.
+
+  ([PR #1007](https://github.com/alphagov/govuk-frontend/pull/1007))
+
+- Set text colour for radios divider
+
+  ([PR 1023](https://github.com/alphagov/govuk-frontend/pull/1023))
+
+- Stop links styled as button from being dragged
+
+  Moving the mouse over a link while its button is depressed causes the
+  browser’s dragging behaviour to trigger (and prevents the `click`
+  event from firing). This is contrary to how actual `<button>` elements
+  work. This pull request makes the behaviour of links styled as buttons
+  consistent with that of buttons.
+
+  ([PR #1020](https://github.com/alphagov/govuk-frontend/pull/1020))
+
+## 2.1.0 (Feature release)
+
+🆕 New features:
+
 - Allow additional 'meta' content in the footer
 
   You can now pass additional 'meta' content (as `meta.html` or `meta.text`)
@@ -22,11 +88,25 @@
 
   ([PR #990](https://github.com/alphagov/govuk-frontend/pull/990))
 
-- Pull Request Title goes here
+- Allow attributes to be added to some child items in header, footer, breadcrumbs, tabs and error-summary components
 
-  Description goes here (optional)
+  You can now pass additional attributes to links in header, footer, breadcrumbs, tabs and error-summary components
 
-  ([PR #N](https://github.com/alphagov/govuk-frontend/pull/N))
+  ([PR #993](https://github.com/alphagov/govuk-frontend/pull/993))
+
+- Fix issue with conditional form content and inline form controls
+
+  When inline variant of form controls is used with conditional content, we force
+  it to display block. This is to avoid breaking and confusing styling as it is
+  a combination we don't recommend.
+
+  ([PR #970](https://github.com/alphagov/govuk-frontend/pull/970))
+
+- Add component options (arguments) as `macro-options.json` to `package`
+
+  We want to be able to expose these options to GOV.UK Design System. This change includes them as `yaml` in `src/components` and adds a build step to transform them to `JSON` and copy them to `package/components`. It also adds a test to check if the copied files are valid JSON and contain expected attributes.
+
+  ([PR #998](https://github.com/alphagov/govuk-frontend/pull/998))
 
 🔧 Fixes:
 
@@ -43,11 +123,23 @@
 
   ([PR #994](https://github.com/alphagov/govuk-frontend/pull/994))
 
-- Pull Request Title goes here
+- Fix flash of unstyled content in tabs component
 
-  Description goes here (optional)
+  ([PR #1000](https://github.com/alphagov/govuk-frontend/pull/1000))
 
-  ([PR #N](https://github.com/alphagov/govuk-frontend/pull/N))
+- Add 48px favicon
+
+  Microsoft recommends including at least a 48x48px favicon.
+
+  ([PR #986](https://github.com/alphagov/govuk-frontend/pull/986))
+
+- Update `browsersList` in `package.json` to reflect our supported browsers
+
+  `browsersList` is used by PostCSS in our current build to determine which browser prefixes or rules to generate for the built CSS files. This PR adds rules to specify that the browsers in our [browser matrix](https://github.com/alphagov/govuk-frontend#browser-support) should always be prefixed for. Additionally, any browser with more than 0.1% of the global market share is prefixed for.
+
+  In terms of changes to our built CSS, this means that `-webkit-box-sizing` and `-webkit-box-shadow` prefixes will be removed - neither of these prefixes are required by desktop Safari 5.1 or later so this seems a fairly safe change to make.
+
+  ([PR #1002](https://github.com/alphagov/govuk-frontend/pull/1002))
 
 ## 2.0.0 (Breaking change)
 
@@ -179,9 +271,9 @@
   ([PR #960](https://github.com/alphagov/govuk-frontend/pull/960))
 
 - Use text colour on focus for better contrast
-  
+
   Updates the focus styles of links in GOV.UK Frontend so they pass WCAG contrast requirements.
-  
+
   ([PR #982](https://github.com/alphagov/govuk-frontend/pull/982))
 
 🆕 New features:
