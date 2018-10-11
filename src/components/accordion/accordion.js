@@ -41,11 +41,6 @@ Accordion.prototype.init = function () {
     var sectionExpanded = $section.classList.contains('govuk-accordion__section--expanded')
     $section.setAttribute('aria-expanded', sectionExpanded)
 
-    /* Remove this class now, as the `aria-expanded` attribute is being used
-     to store expanded state instead. */
-    if (sectionExpanded) {
-      this.$module.classList.remove('govuk-accordion__section--expanded')
-    }
     // Handle events
     header.addEventListener('keypress', this.onKeyPressed.bind(this, $section))
     header.addEventListener('click', this.onToggleExpanded.bind(this, $section))
@@ -65,6 +60,10 @@ Accordion.prototype.init = function () {
 
   // Handle events
   this.$openAllButton.addEventListener('click', this.openOrCloseAllSections.bind(this))
+
+  // See if OpenAll button text should be updated
+  var areAllSectionsOpen = this.checkIfAllSectionsOpen()
+  this.updateOpenAllButton(areAllSectionsOpen)
 }
 
 // Open/close section
@@ -89,6 +88,13 @@ Accordion.prototype.onKeyPressed = function (section, event) {
 // Toggle aria-expanded when section opened/closed
 Accordion.prototype.setExpanded = function (expanded, $section) {
   $section.setAttribute('aria-expanded', expanded)
+
+  if (expanded) {
+    $section.classList.add('govuk-accordion__section--expanded')
+  } else {
+    $section.classList.remove('govuk-accordion__section--expanded')
+  }
+
 
   // This is set to trigger reflow for IE8, which doesn't
   // always reflow after a setAttribute call.

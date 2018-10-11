@@ -20,8 +20,13 @@
   }
 
   // Hide the body of collapsed sections
-  .govuk-accordion__section[aria-expanded="false"] .govuk-accordion__section-body {
+  .govuk-accordion.with-js .govuk-accordion__section .govuk-accordion__section-body {
     display: none;
+  }
+
+  // Show the body of expanded sections
+  .govuk-accordion.with-js .govuk-accordion__section--expanded .govuk-accordion__section-body {
+    display: block;
   }
 
   // Border at the bottom of the whole accordtion
@@ -79,7 +84,7 @@
   }
 
   // Icon should switch position to reveal '-' icon when expanded.
-  .govuk-accordion.with-js .govuk-accordion__section[aria-expanded="true"] .govuk-accordion--icon {
+  .govuk-accordion.with-js .govuk-accordion__section--expanded .govuk-accordion--icon {
     background-position: 0 0;
   }
 
