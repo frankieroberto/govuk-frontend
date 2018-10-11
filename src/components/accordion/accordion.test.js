@@ -50,7 +50,10 @@ describe('/components/accordion', () => {
         const numberOfExampleSections = 2
 
         for (var i = 0; i < numberOfExampleSections; i++) {
-          var sectionExpanded = await page.evaluate(() => document.body.querySelector('.govuk-accordion .govuk-accordion__section:nth-of-type(2)').getAttribute('aria-expanded'))
+
+          const sectionExpanded = await page.evaluate(function(i) {
+            return document.body.querySelector('.govuk-accordion .govuk-accordion__section:nth-of-type(' + (2 + i) + ')').getAttribute('aria-expanded')
+          }, i)
 
           expect(sectionExpanded).toEqual('false')
         }
@@ -81,6 +84,28 @@ describe('/components/accordion', () => {
 
         expect(secondSectionExpanded).toEqual('true')
       })
+
+      it('should already have all sections open if they have the expanded class', async () => {
+        await page.setJavaScriptEnabled(true)
+        await page.goto(baseUrl + '/components/accordion/with-all-sections-already-open/preview', { waitUntil: 'load' })
+
+        const numberOfExampleSections = 2
+
+        for (var i = 0; i < numberOfExampleSections; i++) {
+
+          const sectionExpanded = await page.evaluate(function(i) {
+            return document.body.querySelector('.govuk-accordion .govuk-accordion__section:nth-of-type(' + (2 + i) + ')').getAttribute('aria-expanded')
+          }, i)
+
+          expect(sectionExpanded).toEqual('true')
+        }
+
+        const openOrCloseAllButtonText = await page.evaluate(() => document.body.querySelector('.govuk-accordion__expand-all').textContent)
+
+        expect(openOrCloseAllButtonText).toEqual('Close all')
+
+      })
+
     })
   })
 })

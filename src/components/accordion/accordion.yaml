@@ -3,6 +3,22 @@ examples:
   data:
     items:
       - label: Section A
+        content:
+          html: |
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Example item 1</li>
+            </ul>
+      - label: Section B
+        content:
+          html: |
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Example item 2</li>
+            </ul>
+
+- name: with one section open
+  data:
+    items:
+      - label: Section A
         expanded: true
         content:
           html: |
@@ -10,6 +26,24 @@ examples:
               <li>Example item 1</li>
             </ul>
       - label: Section B
+        content:
+          html: |
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Example item 2</li>
+            </ul>
+
+- name: with all sections already open
+  data:
+    items:
+      - label: Section A
+        expanded: true
+        content:
+          html: |
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Example item 1</li>
+            </ul>
+      - label: Section B
+        expanded: true
         content:
           html: |
             <ul class="govuk-list govuk-list--bullet">
