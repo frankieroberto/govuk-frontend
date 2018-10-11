@@ -95,7 +95,6 @@ Accordion.prototype.setExpanded = function (expanded, $section) {
     $section.classList.remove('govuk-accordion__section--expanded')
   }
 
-
   // This is set to trigger reflow for IE8, which doesn't
   // always reflow after a setAttribute call.
   this.$module.className = this.$module.className

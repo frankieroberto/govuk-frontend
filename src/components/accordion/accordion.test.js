@@ -50,8 +50,7 @@ describe('/components/accordion', () => {
         const numberOfExampleSections = 2
 
         for (var i = 0; i < numberOfExampleSections; i++) {
-
-          const sectionExpanded = await page.evaluate(function(i) {
+          const sectionExpanded = await page.evaluate(function (i) {
             return document.body.querySelector('.govuk-accordion .govuk-accordion__section:nth-of-type(' + (2 + i) + ')').getAttribute('aria-expanded')
           }, i)
 
@@ -92,8 +91,7 @@ describe('/components/accordion', () => {
         const numberOfExampleSections = 2
 
         for (var i = 0; i < numberOfExampleSections; i++) {
-
-          const sectionExpanded = await page.evaluate(function(i) {
+          const sectionExpanded = await page.evaluate(function (i) {
             return document.body.querySelector('.govuk-accordion .govuk-accordion__section:nth-of-type(' + (2 + i) + ')').getAttribute('aria-expanded')
           }, i)
 
@@ -103,9 +101,7 @@ describe('/components/accordion', () => {
         const openOrCloseAllButtonText = await page.evaluate(() => document.body.querySelector('.govuk-accordion__expand-all').textContent)
 
         expect(openOrCloseAllButtonText).toEqual('Close all')
-
       })
-
     })
   })
 })
