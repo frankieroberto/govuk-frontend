@@ -107,8 +107,6 @@ Accordion.prototype.isExpanded = function ($section) {
 }
 
 Accordion.prototype.setHeaderAttributes = function ($header, index) {
-  $header.setAttribute('tabindex', '0')
-
   var $button = $header.querySelector('.govuk-accordion__section-header-button')
 
   // Copy existing div element to an actual button element, for improved accessibility.
