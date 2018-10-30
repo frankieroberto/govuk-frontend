@@ -115,7 +115,7 @@ Accordion.prototype.setHeaderAttributes = function ($header, index) {
   // TODO: this probably needs to be more robust, and copy all attributes and child nodes?
   var $buttonAsButton = document.createElement('button')
   $buttonAsButton.setAttribute('class', $button.getAttribute('class'))
-  $buttonAsButton.setAttribute('aria-controls', this.moduleId + '-panel-' + index)
+  $buttonAsButton.setAttribute('aria-controls', this.moduleId + '-panel-' + (index + 1))
   $buttonAsButton.textContent = $button.textContent
   $header.removeChild($button)
   $header.appendChild($buttonAsButton)
