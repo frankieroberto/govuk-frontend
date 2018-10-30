@@ -110,8 +110,15 @@ Accordion.prototype.setHeaderAttributes = function ($header, index) {
   $header.setAttribute('tabindex', '0')
 
   var $button = $header.querySelector('.govuk-accordion__section-header-button')
-  $button.setAttribute('aria-controls', this.moduleId + '-panel-' + index)
-  $button.setAttribute('role', 'button')
+
+  // Copy existing div element to an actual button element, for improved accessibility.
+  // TODO: this probably needs to be more robust, and copy all attributes and child nodes?
+  var $buttonAsButton = document.createElement('button')
+  $buttonAsButton.setAttribute('class', $button.getAttribute('class'))
+  $buttonAsButton.setAttribute('aria-controls', this.moduleId + '-panel-' + index)
+  $buttonAsButton.textContent = $button.textContent
+  $header.removeChild($button)
+  $header.appendChild($buttonAsButton)
 
   var icon = document.createElement('span')
   icon.setAttribute('class', 'govuk-accordion--icon')
