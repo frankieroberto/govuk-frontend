@@ -4,19 +4,10 @@
         {
             "name": "default",
             "options": {
-                "text": "alpha"
+                "text": "Alpha"
             },
             "hidden": false,
-            "html": "<strong class=\"govuk-tag\">\n  alpha\n</strong>"
-        },
-        {
-            "name": "inactive",
-            "options": {
-                "text": "alpha",
-                "classes": "govuk-tag--grey"
-            },
-            "hidden": false,
-            "html": "<strong class=\"govuk-tag govuk-tag--grey\">\n  alpha\n</strong>"
+            "html": "<strong class=\"govuk-tag\">\n  Alpha\n</strong>"
         },
         {
             "name": "grey",
@@ -35,6 +26,15 @@
             },
             "hidden": false,
             "html": "<strong class=\"govuk-tag govuk-tag--blue\">\n  Blue\n</strong>"
+        },
+        {
+            "name": "light blue",
+            "options": {
+                "text": "Light blue",
+                "classes": "govuk-tag--light-blue"
+            },
+            "hidden": false,
+            "html": "<strong class=\"govuk-tag govuk-tag--light-blue\">\n  Light blue\n</strong>"
         },
         {
             "name": "turquoise",
@@ -114,18 +114,18 @@
         {
             "name": "html as text",
             "options": {
-                "text": "<span>alpha</span>"
+                "text": "<span>Alpha</span>"
             },
             "hidden": true,
-            "html": "<strong class=\"govuk-tag\">\n  &lt;span&gt;alpha&lt;/span&gt;\n</strong>"
+            "html": "<strong class=\"govuk-tag\">\n  &lt;span&gt;Alpha&lt;/span&gt;\n</strong>"
         },
         {
             "name": "html",
             "options": {
-                "html": "<span>alpha</span>"
+                "html": "<span>Alpha</span>"
             },
             "hidden": true,
-            "html": "<strong class=\"govuk-tag\">\n  <span>alpha</span>\n</strong>"
+            "html": "<strong class=\"govuk-tag\">\n  <span>Alpha</span>\n</strong>"
         }
     ]
 }
